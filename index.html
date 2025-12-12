@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Générateur de mails pro – Gratuit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f5f5f5;
+      --bg-card: #ffffff;
+      --primary: #111111;
+      --muted: #666666;
+      --border: #dddddd;
+      --accent: #f6f3ee;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      margin: 0;
+      padding: 0;
+      color: var(--primary);
+    }
+    header {
+      background: #111;
+      color: #fff;
+      padding: 16px 20px;
+    }
+    .nav {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .nav-brand {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      font-size: 1.1rem;
+    }
+    .nav-links a {
+      color: #ddd;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-left: 16px;
+    }
+    .nav-links a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    .subtitle {
+      font-size: 0.85rem;
+      color: #bbbbbb;
+      margin-top: 4px;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 20px auto 40px;
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+    h2 {
+      margin-top: 24px;
+    }
+    label {
+      display: block;
+      margin: 10px 0 4px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    select, input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 0.95rem;
+    }
+    textarea {
+      min-height: 200px;
+      resize: vertical;
+    }
+    button {
+      margin-top: 15px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:hover {
+      background: #333;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .small {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .cta-pack {
+      margin-top: 30px;
+      padding: 16px;
+      border-radius: 10px;
+      background: var(--primary);
+      color: #fff;
+    }
+    .cta-pack h3 {
+      margin-top: 0;
+    }
+    .cta-pack a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 16px;
+      background: #fff;
+      color: #111;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .cta-pack a:hover {
+      background: #f2f2f2;
+    }
+    .email-signup {
+      margin-top: 30px;
+      padding: 16px;
+      border-radius: 10px;
+      background: var(--accent);
+      border: 1px solid var(--border);
+    }
+    .email-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .email-row input[type="email"] {
+      flex: 1;
+    }
+    .email-row button {
+      width: auto;
+      margin-top: 0;
+      background: #111;
+      white-space: nowrap;
+    }
+    @media (max-width: 600px) {
+      .email-row {
+        flex-direction: column;
+      }
+      .email-row button {
+        width: 100%;
+      }
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      font-size: 0.8rem;
+      color: #777;
+    }
+    footer a {
+      color: #0d47a1;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div>
+        <div class="nav-brand">MailWizard</div>
+        <div class="subtitle">Générateur de mails & messages pro – 100% gratuit</div>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Générateur</a>
+        <a href="about.html">À propos & ressources</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h1>Générateur de mails & messages pro</h1>
+    <p class="small">
+      Choisis un type de message, remplis les champs, clique sur “Générer” puis copie-colle dans ton e-mail ou sur LinkedIn.
+    </p>
+
+    <h2>1. Paramètres du message</h2>
+
+    <label for="type">Type de message</label>
+    <select id="type">
+      <option value="candidature_offre">Candidature à une offre</option>
+      <option value="candidature_spontanee">Candidature spontanée</option>
+      <option value="candidature_alternance">Candidature alternance</option>
+      <option value="candidature_stage">Candidature stage</option>
+      <option value="remerciement_entretien">Remerciement après entretien</option>
+      <option value="relance_candidature">Relance candidature sans réponse</option>
+      <option value="relance_entretien">Relance après entretien</option>
+      <option value="relance_facture">Relance facture en retard</option>
+      <option value="mail_demande_info">Demande d’informations professionnelles</option>
+      <option value="mail_compte_rendu">Compte-rendu de réunion</option>
+      <option value="message_linkedin_recruteur">Message LinkedIn à un recruteur</option>
+      <option value="message_linkedin_remerciement">Remerciement après connexion LinkedIn</option>
+      <option value="message_linkedin_reconnexion">Reprendre contact (LinkedIn)</option>
+    </select>
+
+    <div class="grid">
+      <div>
+        <label for="prenom">Ton prénom</label>
+        <input id="prenom" type="text" placeholder="Ex : Cédric" />
+      </div>
+      <div>
+        <label for="nom">Ton nom</label>
+        <input id="nom" type="text" placeholder="Ex : Dupont" />
+      </div>
+      <div>
+        <label for="poste">Intitulé du poste / sujet</label>
+        <input id="poste" type="text" placeholder="Ex : Administrateur systèmes & réseaux" />
+      </div>
+      <div>
+        <label for="entreprise">Nom de l’entreprise / client</label>
+        <input id="entreprise" type="text" placeholder="Ex : Nantes Habitat" />
+      </div>
+    </div>
+
+    <label for="infos">Contexte (optionnel)</label>
+    <textarea id="infos" placeholder="Ex : Candidature envoyée le 10/12, entretien du 05/12, facture n°123, etc."></textarea>
+    <p class="small">Tu peux laisser vide si tu veux un message très générique.</p>
+
+    <button id="generateBtn">Générer le message</button>
+
+    <h2 style="margin-top:30px;">2. Message généré</h2>
+    <p class="small">Tu peux modifier le texte ci-dessous avant de le copier-coller.</p>
+    <textarea id="output" placeholder="Le message généré apparaîtra ici."></textarea>
+
+    <!-- Formulaire de capture email -->
+    <section class="email-signup">
+      <h3>📩 Recevoir 3 modèles d’e-mails exclusifs</h3>
+      <p class="small">
+        Laisse ton e-mail pour recevoir d’autres modèles prêts à copier-coller et quelques conseils simples pour améliorer tes messages.
+      </p>
+      <!-- Remplace l’URL d’action par ton endpoint Formspree -->
+      <form action="https://formspree.io/f/mvgedgal" method="POST">
+        <label for="email">Ton e-mail</label>
+        <div class="email-row">
+          <input type="email" id="email" name="email" placeholder="ton.email@example.com" required />
+          <button type="submit">Recevoir les modèles</button>
+        </div>
+        <p class="small">
+          Pas de spam. Tu peux te désinscrire à tout moment.
+        </p>
+      </form>
+    </section>
+
+    <!-- CTA vers ton pack payant -->
+    <div class="cta-pack">
+      <h3>🎁 Besoin de + de modèles prêts à l’emploi ?</h3>
+      <p>
+        J’ai regroupé 50+ modèles d’e-mails & messages pro (candidatures, relances, LinkedIn, clients, factures…)
+        que tu peux copier-coller directement.
+      </p>
+      <!-- Remplace par ton vrai lien Gumroad / Payhip -->
+      <a href="https://sendmeall.gumroad.com/l/lsgzn target="_blank">
+        Découvrir le pack complet →
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    Outil gratuit – Tu restes responsable des messages que tu envoies. |
+    <a href="about.html">À propos</a>
+  </footer>
+
+  <script>
+    const templates = {
+      candidature_offre: ({ prenom, nom, poste, entreprise, infos }) => `
+Objet : Candidature au poste de ${poste} – ${prenom} ${nom}
+
+Bonjour,
+
+Je me permets de vous adresser ma candidature pour le poste de ${poste} au sein de ${entreprise}${
+  infos
+    ? `, suite à ${infos.trim()}.`
+    : "."
+}
+
+Avec mon expérience en lien avec ce poste, j’ai développé des compétences solides en lien avec les missions attendues, et je suis convaincu(e) de pouvoir apporter une contribution concrète à vos équipes.
+
+Je vous joins mon CV et reste disponible pour vous fournir toute information complémentaire si besoin. Je serais ravi(e) de pouvoir échanger avec vous lors d’un entretien.
+
+Cordialement,
+${prenom} ${nom}
+`.trim(),
+
+      candidature_spontanee: ({ prenom, nom, poste, entreprise, infos }) => `
+Objet : Candidature spontanée – ${poste} – ${prenom} ${nom}
+
+Bonjour,
+
+Je me permets de vous contacter pour vous soumettre ma candidature spontanée en tant que ${poste} au sein de ${entreprise}${
+  infos ? `, ${infos.trim()}.` : "."
+}
+
+J’ai développé des compétences en lien avec ce poste (organisation, relation client, travail en équipe…) et je serais ravi(e) de pouvoir les mettre à contribution dans vos équipes.
+
+Je vous joins mon CV et reste à votre disposition pour échanger sur d’éventuelles opportunités actuelles ou futures.
+
+Cordialement,
+${prenom} ${nom}
+`.trim(),
+
+      candidature_alternance: ({ prenom, nom, poste, entreprise, infos }) => `
+Objet : Candidature en alternance – ${poste} – ${prenom} ${nom}
+
+Bonjour,
+
+Actuellement en formation de ${poste}, je suis à la recherche d’une alternance à partir de ${infos || "la prochaine rentrée"}.
+
+Je suis particulièrement intéressé(e) par ${entreprise} pour développer mes compétences sur le terrain et contribuer à vos projets.
+
+Je vous joins mon CV et reste à votre disposition pour un entretien.
+
+Cordialement,
+${prenom} ${nom}
+`.trim(),
+
+      candidature_stage: ({ prenom, nom, poste, entreprise, infos }) => `
+Objet : Candidature stage – ${poste} – ${prenom} ${nom}
+
+Bonjour,
+
+Actuellement en formation de ${poste}, je suis à la recherche d’un stage de ${infos || "plusieurs semaines"} et souhaiterais l’effectuer au sein de ${entreprise}.
+
+Je suis motivé(e), sérieux(se) et prêt(e) à m’investir pleinement pour apprendre et apporter ma contribution.
+
+Je vous joins mon CV et reste à votre disposition pour un entretien.
+
+Cordialement,
+${prenom} ${nom}
+`.trim(),
+
+      remerciement_entretien: ({ prenom, nom, poste, entreprise, infos }) => `
+Objet : Remerciements – Entretien pour le poste de ${poste}
+
+Bonjour,
+
+Je tiens à vous remercier pour le temps que vous m’avez accordé lors de notre entretien concernant le poste de ${poste} au sein de ${entreprise}${
+  infos ? ` (${infos.trim()})` : ""
+}.
+
+J’ai particulièrement apprécié notre échange et la présentation de vos projets, ce qui renforce mon envie de rejoindre vos équipes.
+
+Je reste à votre disposition pour tout complément d’information.
+
+Cordialement,
+${prenom} ${nom}
+`.trim(),
+
+      relance_candidature: ({ prenom, nom, poste, entreprise, infos }) => `
+Objet : Relance – Candidature au poste de ${poste}
+
+Bonjour,
+
+Je me permets de revenir vers vous concernant ma candidature pour le poste de ${poste} au sein de ${entreprise}${
+  infos
+    ? `, envoyée ${infos.trim()}.`
+    : "."
+}
+
+Je reste très intéressé(e) par cette opportunité et par la possibilité de rejoindre vos équipes. Je souhaitais simplement savoir si vous aviez pu prendre connaissance de ma candidature et si un calendrier de recrutement était déjà défini.
+
+Je reste à votre disposition pour tout complément d’information.
+
+Cordialement,
+${prenom} ${nom}
+`.trim(),
+
+      relance_entretien: ({ prenom, nom, poste, entreprise, infos }) => `
+Objet : Suite à notre entretien – Poste de ${poste}
+
+Bonjour,
+
+Je vous remercie encore pour l’échange que nous avons eu concernant le poste de ${poste} au sein de ${entreprise}${
+  infos ? ` (${infos.trim()})` : ""
+}.
+
+Notre discussion a confirmé mon intérêt pour le poste et pour vos projets. Je souhaitais savoir où en était le processus de recrutement et si vous aviez besoin d’informations complémentaires de ma part.
+
+Merci d’avance pour votre retour.
+
+Cordialement,
+${prenom} ${nom}
+`.trim(),
+
+      relance_facture: ({ prenom, nom, poste, entreprise, infos }) => `
+Objet : Relance facture – ${entreprise}
+
+Bonjour,
+
+Je me permets de vous recontacter au sujet de la facture en attente de règlement${
+  infos ? ` (${infos.trim()})` : ""
+}.
+
+Sauf erreur de ma part, elle n’apparaît pas encore comme réglée de mon côté. Pourriez-vous me confirmer que le paiement est bien en cours de traitement, ou m’indiquer s’il y a un souci particulier ?
+
+Je vous remercie par avance pour votre retour.
+
+Cordialement,
+${prenom} ${nom}
+`.trim(),
+
+      mail_demande_info: ({ prenom, nom, poste, entreprise, infos }) => `
+Objet : Demande d’informations concernant ${poste}
+
+Bonjour,
+
+Je me permets de vous contacter au sujet de ${poste} au sein de ${entreprise}${
+  infos ? ` (${infos.trim()})` : ""
+}.
+
+J’aurais quelques questions concernant ${infos || "les missions et l’organisation"} et souhaitais savoir s’il était possible d’obtenir des précisions à ce sujet.
+
+Je vous remercie d’avance pour votre retour.
+
+Cordialement,
+${prenom} ${nom}
+`.trim(),
+
+      mail_compte_rendu: ({ prenom, nom, poste, entreprise, infos }) => `
+Objet : Compte-rendu – Réunion ${poste}${entreprise ? " – " + entreprise : ""}
+
+Bonjour,
+
+Merci pour votre participation à la réunion concernant ${poste}${entreprise ? " pour " + entreprise : ""}${
+  infos ? ` (${infos.trim()})` : ""
+}.
+
+Voici un bref récapitulatif :
+
+Points abordés :
+- …
+
+Décisions prises :
+- …
+
+Actions à mener :
+- …
+
+N’hésitez pas à revenir vers moi si vous souhaitez compléter ou modifier certains points.
+
+Cordialement,
+${prenom} ${nom}
+`.trim(),
+
+      message_linkedin_recruteur: ({ prenom, nom, poste, entreprise, infos }) => `
+Bonjour,
+
+Je me permets de vous contacter car je m’intéresse particulièrement à ${entreprise} et au poste de ${poste}${
+  infos ? ` (${infos.trim()})` : ""
+}.
+
+Je suis actuellement en recherche d’opportunités dans ce domaine et je serais ravi(e) d’échanger rapidement avec vous si vous êtes disponible, ou d’en savoir plus sur votre processus de recrutement.
+
+Merci pour votre temps et votre retour éventuel.
+
+Bonne journée,
+${prenom} ${nom}
+`.trim(),
+
+      message_linkedin_remerciement: ({ prenom, nom, poste, entreprise, infos }) => `
+Bonjour,
+
+Merci pour la connexion !
+
+Je suis ${poste || "en recherche de nouvelles opportunités"} et je m’intéresse particulièrement à ${entreprise || "votre secteur"}${
+  infos ? ` (${infos.trim()})` : ""
+}.
+
+Au plaisir d’échanger avec vous à l’occasion.
+
+Bonne journée,
+${prenom} ${nom}
+`.trim(),
+
+      message_linkedin_reconnexion: ({ prenom, nom, poste, entreprise, infos }) => `
+Bonjour,
+
+Nous avions été en contact par le passé${entreprise ? ` chez ${entreprise}` : ""}${infos ? ` (${infos.trim()})` : ""}.
+
+J’espère que tout va bien de votre côté. Je serais ravi(e) de reprendre contact et d’avoir de vos nouvelles, et pourquoi pas d’échanger à nouveau autour de nos projets respectifs.
+
+Bonne journée,
+${prenom} ${nom}
+`.trim()
+    };
+
+    document.getElementById("generateBtn").addEventListener("click", () => {
+      const type = document.getElementById("type").value;
+      const prenom = document.getElementById("prenom").value || "Prénom";
+      const nom = document.getElementById("nom").value || "Nom";
+      const poste = document.getElementById("poste").value || "Intitulé du poste";
+      const entreprise = document.getElementById("entreprise").value || "l’entreprise";
+      const infos = document.getElementById("infos").value;
+
+      const generator = templates[type];
+      if (!generator) {
+        document.getElementById("output").value = "Erreur : type de message inconnu.";
+        return;
+      }
+
+      const message = generator({ prenom, nom, poste, entreprise, infos });
+      document.getElementById("output").value = message;
+    });
+  </script>
+</body>
+</html>
